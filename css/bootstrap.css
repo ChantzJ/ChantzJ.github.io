@@ -6581,4 +6581,10 @@ button.close {
     display: none !important;
   }
 }
+.col-center {
+  display: block;
+  margin: 0 auto;
+  float: none;
+  text-align: center;
+}
 /*# sourceMappingURL=bootstrap.css.map */
