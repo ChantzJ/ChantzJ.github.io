@@ -49,7 +49,6 @@ var quantize = d3.scale.quantize()
     .range(d3.range(9).map(function(i) { return "q" + i + "-9"; }));
 
 var projection = d3.geo.transverseMercator()
-    .rotate([74 + 30 / 60, -38 - 50 / 60]);
 
 var path = d3.geo.path()
     .projection(projection);
