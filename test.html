@@ -12,7 +12,7 @@ path:hover {
   fill: red;
 }
 
-.counties {
+.Michigan.geo {
   fill: none;
 }
 
@@ -68,7 +68,7 @@ function ready(error, us) {
   if (error) throw error;
 
   svg.append("g")
-      .attr("class", "counties")
+      .attr("class", "Michigan.geo")
     .selectAll("path")
       .data(topojson.feature(us, us.objects.Michigan.geo).features)
     .enter().append("path")
