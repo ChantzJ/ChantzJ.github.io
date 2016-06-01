@@ -88,7 +88,7 @@ function ready(error, us) {
       .attr("class", function(d) { return quantize(rateById.get(d.id)); })
       .attr("d", path);
     .append("title")
-      .text(function(d) { return d.id; });
+      .text(function(d) { return d.counties.id; });
 
  // svg.append("path")
   //    .datum(topojson.mesh(us, us.objects.states, function(a, b) { return a !== b; }))
