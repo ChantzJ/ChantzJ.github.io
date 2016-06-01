@@ -40,7 +40,7 @@ path:hover {
 <script>
 
 var width = 960,
-    height = 600;
+    height = 1200;
 
 var rateById = d3.map();
 
@@ -48,9 +48,8 @@ var quantize = d3.scale.quantize()
     .domain([0, .15])
     .range(d3.range(9).map(function(i) { return "q" + i + "-9"; }));
 
-var projection = d3.geo.albersUsa()
-    .scale(1280)
-    .translate([width / 2, height / 2]);
+var projection = d3.geo.transverseMercator()
+    .rotate([74 + 30 / 60, -38 - 50 / 60]);
 
 var path = d3.geo.path()
     .projection(projection);
