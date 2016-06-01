@@ -50,8 +50,8 @@ var svg = d3.select("body").append("svg")
     .attr("height", height);
 
 queue()
-    .defer(d3.json, "http://bl.ocks.org/mbostock/raw/4090846/us.json")
-    .defer(d3.tsv, "https://gist.github.com/mbostock/4060606#file-unemployment-tsv", function(d) { rateById.set(d.id, +d.rate); })
+    .defer(d3.json, "ChantzJ.github.io/us-all.json")
+    .defer(d3.tsv, "ChantzJ.github.io/unemployment.tsv", function(d) { rateById.set(d.id, +d.rate); })
     .await(ready);
 
 function ready(error, us) {
