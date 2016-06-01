@@ -60,7 +60,7 @@ var svg = d3.select("body").append("svg")
     .attr("height", height);
 
 queue()
-    .defer(d3.json, "ChantzJ.github.io/us-all.json")
+    .defer(d3.json, "ChantzJ.github.io/Michigan.topo.json")
     .defer(d3.tsv, "ChantzJ.github.io/unemployment.tsv", function(d) { rateById.set(d.id, +d.rate); })
     .await(ready);
 
@@ -75,10 +75,10 @@ function ready(error, us) {
       .attr("class", function(d) { return quantize(rateById.get(d.id)); })
       .attr("d", path);
 
-  svg.append("path")
-      .datum(topojson.mesh(us, us.objects.states, function(a, b) { return a !== b; }))
-      .attr("class", "states")
-     .attr("d", path);
+ // svg.append("path")
+  //    .datum(topojson.mesh(us, us.objects.states, function(a, b) { return a !== b; }))
+  //    .attr("class", "states")
+  //   .attr("d", path);
 }
 
 d3.select(self.frameElement).style("height", height + "px");
