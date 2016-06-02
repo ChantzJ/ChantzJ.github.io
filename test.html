@@ -64,7 +64,7 @@ var quantize = d3.scale.quantize()
     .range(d3.range(9).map(function(i) { return "q" + i + "-9"; }));
 
 var projection = d3.geo.transverseMercator()
-  .rotate([100 + 31 / 60, -38 - 90 / 60]);
+  .rotate([100 + 31 / 60, -50 - 90 / 60]);
 
 var path = d3.geo.path()
     .projection(projection);
