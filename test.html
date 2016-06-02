@@ -75,7 +75,7 @@ var svg = d3.select("body").append("svg")
 
 queue()
     .defer(d3.json, "ChantzJ.github.io/Michigan.topo.json")
-    .defer(d3.tsv, "ChantzJ.github.io/MIunemployment.tsv ", function(d) { rateById.set(d.id, +d.rate); })
+    .defer(d3.tsv, "ChantzJ.github.io/MIunemployment.tsv ", function(d) { rateById.set(d.fips, +d.rate); })
     .await(ready);
 
 function ready(error, us) {
@@ -100,10 +100,10 @@ function ready(error, us) {
     .selectAll("path")
       .data(topojson.feature(us, us.objects.counties).features)
     .enter().append("path")
-      .attr("class", function(d) { return quantize(rateById.get(d.id)); })
+      .attr("class", function(d) { return quantize(rateById.get(d.fips)); })
       .attr("d", path);
-    .append("title")
-      .text(function(d) { return d.id; });
+    //.append("title")
+    //  .text(function(d) { return d.id; });
 
  // svg.append("path")
   //    .datum(topojson.mesh(us, us.objects.states, function(a, b) { return a !== b; }))
