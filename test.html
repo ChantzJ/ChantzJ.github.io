@@ -75,7 +75,7 @@ var svg = d3.select("body").append("svg")
 
 queue()
     .defer(d3.json, "ChantzJ.github.io/Michigan.topo.json")
-    .defer(d3.tsv, "ChantzJ.github.io/unemployment.tsv", function(d) { rateById.set(d.id, +d.rate); })
+    .defer(d3.tsv, "ChantzJ.github.io/MIunemployment.tsv", function(d) { rateById.set(d.id, +d.rate); })
     .await(ready);
 
 function ready(error, us) {
