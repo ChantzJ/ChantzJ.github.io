@@ -20,7 +20,7 @@ path {
 }
 
 path:hover {
-  fill: red;
+  fill: blue;
 }
 
 .counties {
@@ -119,7 +119,7 @@ d3.select(self.frameElement).style("height", height + "px");
 <script type="text/javascript">
 $(document).ready(function() {
 // Tooltip only Text
-$('.masterTooltip').hover(function(){
+$('path').hover(function(){
         // Hover over code
         var title = $(this).attr('title');
         $(this).data('tipText', title).removeAttr('title');
