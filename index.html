@@ -83,6 +83,12 @@
 					<li>
 					<a href=" ChantzJ.github.io/Notebooks/classification.html">Hierarchical Clustering</a>	
 					</li>
+					<li>
+					<a href=" ChantzJ.github.io/Notebooks/Sentiment.html">Sentiment Analysis</a>	
+					</li>
+					<li>
+					<a href=" ChantzJ.github.io/Notebooks/Clustering.html">Cluster Analysis</a>	
+					</li>
    		 		</ul>
   			</li>
 			
@@ -109,7 +115,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="intro-message">
-                        <h1>Twitter Mining</h1>
+                        <h1>Subreddit Sentiment Analysis Through Clustering </h1>
                         <h3>A machine learning based approach to text analytics</h3>
                         <!--<hr class="intro-divider">
                                         	<figure class="figure">
@@ -150,9 +156,7 @@
                     <hr class="section-heading-spacer">
                     <div class="clearfix"></div>
                     <h2 class="section-heading">The "Why" and "How-To"</h2>
-                    <p class="lead">One day I was thinking, people probably post their feelings on social media, so why not find out how people feel?
-                    		To say the least this is a bigger challenge than expected for one reason; feelings are subjective and murky. Sometimes a message just clearly convey the actual meaning and therein lies the problem
-			This project is designed to explore the possibilites of machine learning applied to Twitter data to deliver a sentiment classification. </p>
+                    <p class="lead">The Reddit comment dataset from January and February is comprised of over 220 million comments and over 100 million separate threads. The population of Reddit is comprised of members from all over the world speaking all languages although the most dominant language is English. Reddit users are free to post anything they wish on the site no matter how offensive which makes the topic of sentiment analysis so interesting for this data. In short, the goal of this project is to analyze the comment data from the top “Subreddits” by looking at the overall sentiment/intensity and using clustering methods to check which subreddits are most similar in terms negative/hateful, positive/supportive, and neutral comments as well as analyze their trends over time. </p>
                 </div>
                 <div class="col-lg-5 col-lg-offset-2 col-sm-6">
                 	<figure class="figure">
@@ -177,11 +181,10 @@
                     <hr class="section-heading-spacer">
                     <div class="clearfix"></div>
                     <h2 class="section-heading">Current Progress<br></h2>
-                    <p class="lead">Two lexicons have been found for the sentiment analysis, one for postive/negative sentiment can be found 
-			    <a href="https://www.cs.uic.edu/~liub/FBS/sentiment-analysis.html">HERE</a> and one for emotions found <a href="http://saifmohammad.com/WebPages/lexicons.html">HERE</a>.
-			    Because no suitable dataset could be found(full tweets with geographical data), data collection is ongoing. A method also has been found uploading Jupyter notebooks, a hub is currently being made so they can be browsed.
-
-                    			</p>
+                    <p class="lead">The problem presented is two-fold, the first being that of analyzing the sentiment of each filtered comment in the dataset and the second is finding some meaningful grouping amongst the comments. The data was received as rows of comments with corresponding metadata such as timestamp, upvote, downvote, etc. This data was cleaned to remove unnecessary dimensions such as ‘post_id’, ‘parent_id’, etc.
+The analysis that was to be performed was analyzing the sentiment of each comment grouped by subreddit for each day of month in both tables. The sentiment scores themselves were assigned using a method from the NLTK Vader package which used a normalized average of the positive and negative words in each text selection. It was then the goal of the project to analyze the groupings through the sentiment scores using clustering to define the groups of subreddits and detect which subreddits belonged to which groups and to notice anomalies.
+The dimension reduced data matrix being used for clustering used the Subreddit names for rows with each entry(column) corresponding to the average sentiment of the comments in that Subreddit for a given day. Although not a perfect method of scoring, the average sentiment by day was deemed usable because it would represent the overall negativity/positivity of a given Subreddit on a particular date. The scoring system in turn allowed for comparison of the data points against one another and checking if they were similar over time. At this point, an unsupervised learning approach was utilized; several agglomerative hierarchical clustering methods were used to detect groupings of Subreddits using the sentiment scores over time. 
+</p>
                 </div>
                 <div class="col-lg-5 col-sm-pull-6  col-sm-6">
                 	<figure class="figure">
@@ -206,7 +209,8 @@
                     <hr class="section-heading-spacer">
                     <div class="clearfix"></div>
                     <h2 class="section-heading">The Results</h2>
-                    <p class="lead">Results Here
+                    <p class="lead">The overall result of this project was the finding of several groups of subreddits based from the comments made by their users over the course of a two-month time span. Subreddits such as “News” 
+or “4chan” had consistently Negative comments over time while subreddits such as “Fitness”, “DIY”, and “malefashionadvice” had sustained positive commentary over time.  There are several interesting subreddits that were placed in unexpected clusters such as “NFL” and “leagueoflegends” which have reputations as negative but many of the comments are very positive. Other subreddits such as “pics” were placed in the negative cluster which was also very unexpected because of the generally positive content of the forum.  An interesting point in the analysis shows that there is somewhat no “middle ground” to speak of in these comments; they are either positive or negative. With more time, a further study could be done with manual labeling of the subreddits into categories such as “games”, “culture”, “news”, etc... where they can be analyzed for any trends amongst the categories. Another possible path would be to have professional labeling of comments as positive or negative to form a test set so an accuracy can be determined. There is also much room for improvement in the method of sentiment scoring as the current method uses compound polarity scoring from the NLTK Vader package which, although suited for social media text, is focused on smaller text then what Reddit provides. Overall I would conclude that this project provides a strong foundation for further insight into Reddit Communities 
 </p>
                 </div>
                 <div class="col-lg-5 col-lg-offset-2 col-sm-6">
